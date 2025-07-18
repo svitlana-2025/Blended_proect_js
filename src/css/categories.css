@@ -8,7 +8,7 @@
 
 .categories__item {
   list-style: none;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
@@ -18,14 +18,14 @@
 .categories__btn {
   padding: 0.8rem 1.5rem;
 
-  color: var(--primary-text-color);
+  color: #2d3748;
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 
-  background-color: var(--card-bg-color);
-  border: 1px solid var(--border-color);
+  background: #fff;
+  border: 2px solid #e2e8f0;
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -54,7 +54,38 @@
   }
 }
 
-[data-theme='dark'] .categories__btn--active {
-  background-color: var(--accent-color);
-  color: white;
+/* === Load More Button === */
+.load-more {
+  /* Розміщення по центру */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px; /* Відступ зверху від списку продуктів */
+
+  /* Стилі для вигляду кнопки */
+  padding: 12px 24px;
+  font-family: inherit; /* Успадковує шрифт від body */
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #ff6b0a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  /* Плавний перехід для ефектів */
+  transition: all 0.3s ease;
+}
+
+/* Ефект при наведенні курсора */
+.load-more:hover,
+.load-more:focus {
+  background-color: #e05a00;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 107, 10, 0.3);
+}
+
+/* Ховаємо кнопку, якщо вона не потрібна (логіка в JS) */
+.load-more.hidden {
+  display: none;
 }

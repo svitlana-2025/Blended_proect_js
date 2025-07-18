@@ -1,3 +1,77 @@
 .section {
-  padding: 40px 0;
+  padding: 60px 0;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  position: fixed; /* Фіксована позиція для перекриття всього контенту */
+  top: 50%;
+  left: 50%;
+  width: 75px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  z-index: 999; /* Перекриває весь інший контент */
+  background: radial-gradient(farthest-side, #ffa516 94%, #0000) top/8px 8px
+      no-repeat,
+    conic-gradient(#0000 30%, #ffa516);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: l13 1s infinite linear;
+}
+@keyframes l13 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+/* --- Клас для приховування лоадера --- */
+/* Цей клас додається/видаляється за допомогою JavaScript */
+.loader.hidden {
+  opacity: 0; /* Робимо повністю прозорим */
+  visibility: hidden; /* Ховаємо елемент і робимо неклікабельним */
+  pointer-events: none; /* Ігноруємо будь-які кліки */
+}
+
+/* ================= SCROLL UP BUTTON ================= */
+.scroll-up {
+  /* Позиціонування */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+
+  /* Розміри та вигляд */
+  width: 50px;
+  height: 50px;
+  color: #fff; /* Колір іконки */
+  background-color: #ff6b0a;
+  border-radius: 50%; /* Робимо кнопку круглою */
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  /* Початковий стан - приховано */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100px); /* Починає свій рух знизу */
+
+  /* Плавна анімація для появи */
+  transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out,
+    transform 250ms ease-in-out;
+}
+
+/* Стан, коли кнопка видима */
+/* Клас .show додається за допомогою вашого JS */
+.scroll-up.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* Повертається у свою позицію */
+}
+
+/* Ефект при наведенні */
+.scroll-up:hover,
+.scroll-up:focus {
+  background-color: #e05a00;
 }

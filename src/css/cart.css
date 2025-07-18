@@ -10,12 +10,9 @@
 
   padding: 1.5rem;
 
-  background-color: var(--card-bg-color);
-  border: 1px solid var(--border-color);
+  background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  color: var(--primary-text-color);
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .cart-summary__inner {
@@ -90,7 +87,27 @@
 }
 
 .cart-summary__hint {
-  color: var(--primary-text-color);
+  margin: 1rem 0;
+
+  color: #94a3b8;
   font-size: 0.9rem;
   text-align: center;
+}
+
+/* ================= CART PAGE: MOBILE ADAPTATION (FIXED) ================= */
+@media screen and (max-width: 767px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    order: -1;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .cart-content {
+    width: 100%;
+  }
 }
